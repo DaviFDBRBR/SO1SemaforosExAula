@@ -44,9 +44,8 @@ public class ThreadCompra extends Thread {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-
+		
 		verificar(tempo, 1000);
-
 	}
 
 	private void processarCompra() {
@@ -60,7 +59,6 @@ public class ThreadCompra extends Thread {
 		}
 
 		verificar(tempo, 2500);
-
 	}
 
 	private void verificar(int tempo, int limite) {
@@ -83,5 +81,4 @@ public class ThreadCompra extends Thread {
 			System.out.println("Thread #" + id + ", a quantidade de ingressos requisita (" + ingressosQtd + ") não está indisponível!");
 		}
 	}
-
 }
