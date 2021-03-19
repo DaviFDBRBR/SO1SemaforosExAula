@@ -18,19 +18,20 @@ public class ThreadCompra extends Thread {
 		login();
 
 		if (prossegue) {
+			processarCompra();
+		}
+
+		if (prossegue) {
+			
 			try {
 				semaforo.acquire();
-				processarCompra();
+				validarCompra();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} finally {
 				semaforo.release();
 			}
-			
-		}
 
-		if (prossegue) {
-			validarCompra();
 		}
 		
 	}
