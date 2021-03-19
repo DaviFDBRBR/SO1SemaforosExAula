@@ -4,7 +4,7 @@ import java.util.concurrent.Semaphore;
 
 public class ThreadCompra extends Thread {
 	private boolean prossegue;
-	private int id;
+	private int id, ingressosQtd;
 	static int ingressosDisponiveis = 100;
 	private Semaphore semaforo;
 
@@ -51,7 +51,8 @@ public class ThreadCompra extends Thread {
 
 	private void processarCompra() {
 		int tempo = (int) (Math.random() * 2001 + 1000);
-
+		this.ingressosQtd = (int) (Math.random() * 4 + 1);
+		
 		try {
 			sleep(tempo);
 		} catch (InterruptedException e) {
@@ -73,7 +74,6 @@ public class ThreadCompra extends Thread {
 	}
 
 	private void validarCompra() {
-		int ingressosQtd = (int) (Math.random() * 4 + 1);
 
 		if (ingressosQtd <= ingressosDisponiveis) {
 			ingressosDisponiveis -= ingressosQtd;
